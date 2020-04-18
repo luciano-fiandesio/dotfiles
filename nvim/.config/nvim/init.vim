@@ -163,6 +163,9 @@ let g:tagbar_compact = 1
 let g:tagbar_iconchars = ['▶', '▼']
 " }}}
 
+" markdown {{{
+let g:vim_markdown_folding_disabled = 1
+" }}}
 " open files
 map <silent> <leader>nn :e $HOME/resiliosync/always-up/documents/notes.txt<CR>
 map <silent> <leader>jj :e $HOME/resiliosync/always-up/documents/journal<CR>
