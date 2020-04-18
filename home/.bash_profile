@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # .bashrc
 
+if [ -f ~/.bashrc ]; then 
+    source ~/.bashrc 
+fi
+
+
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
