@@ -14,3 +14,5 @@ This is a template:
 [github]
   user = [github user] 
   token = [github token]
+[commit]
+  gpgSign = false 

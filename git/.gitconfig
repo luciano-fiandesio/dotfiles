@@ -38,8 +38,7 @@
   newNormal = green bold
   newHighlight = green bold 22
 [commit]
-  template = ~/.config/git/commit_message.txt
-	gpgSign = true
+  #template = ~/.config/git/commit_message.txt
 [interactive]
   singleKey = true
 [status]
