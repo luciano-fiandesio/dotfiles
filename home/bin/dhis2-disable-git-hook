@@ -1,0 +1,5 @@
+#!/bin/sh
+hook=dhis.maven-git-code-format.pre-commit.sh
+project=$HOME/projects/clients/dhis2/dhis2-core
+sed -i '' '3,4 s/^/#/' "$project/.git/hooks/$hook"
+
