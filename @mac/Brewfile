@@ -146,6 +146,7 @@ cask "vlc"
 cask "whatsapp"
 cask "xee"
 cask "xld"
+cask "tunnelbear"
 mas "Annotate", id: 918207447
 mas "Day One", id: 1055511498
 mas "GIF Brewery 3", id: 1081413713
