@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin:$HOME/.local/bin"
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
