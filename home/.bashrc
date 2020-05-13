@@ -1,4 +1,9 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin:$HOME/.local/bin"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export PATH=$PATH:/usr/local/Cellar/libpq/12.2_1/bin
+fi
+
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
