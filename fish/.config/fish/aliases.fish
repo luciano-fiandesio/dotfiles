@@ -13,8 +13,9 @@ alias v="nvim"
 ## JAVA
 
 alias msk 'mvn clean install -Dmaven.test.skip=true'
-alias j8 'sdk use java jdk1.8.0_221'
+alias j8 'sdk use java 1.8.0_251'
 alias j12 'sdk use java 12.0.2.hs-adpt'
+alias j14 'sdk use java 14.0.2.hs-adpt'
 
 ## MISC
 
