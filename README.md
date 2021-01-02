@@ -1,11 +1,27 @@
 # Dotfiles and workspace configuration
 
 
-## init
+## Installation
 
 ```
-git clone https://github.com/luciano-fiandesio/dotfiles.git && cd dotfiles && git submodule init && git submodule update
+git clone https://github.com/luciano-fiandesio/dotfiles.git ~/.dotfiles
+cd .dotfiles
+git submodule init
+git submodule update
 ```
+
+Install `brew` and `fish` + `fisher`
+
+```
+~/.dotfiles/install.sh
+```
+
+Install `fisher` plugins
+
+```
+fisher update
+```
+
 
 ## dev
 
