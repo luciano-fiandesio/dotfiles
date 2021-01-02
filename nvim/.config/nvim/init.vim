@@ -144,8 +144,6 @@ nnoremap - :NERDTreeFind<CR>
 " }}}
 
 " Plugins
-source ~/.config/nvim/coc.vim
-"source ~/.config/nvim/language-client.vim
 
 " fzf {{{
 set rtp+=/usr/local/opt/fzf     " set path to fzf for osx (see https://github.com/junegunn/fzf/blob/master/README-VIM.md)

@@ -1,7 +1,7 @@
 # Dotfiles and workspace configuration
 
 
-## Installation
+## Install requirements
 
 ```
 git clone https://github.com/luciano-fiandesio/dotfiles.git ~/.dotfiles
@@ -22,6 +22,31 @@ Install `fisher` plugins
 fisher update
 ```
 
+## Install brew formulas, casks and App Store apps
+
+```
+cd osx
+./setup.sh
+```
+
+## Install terminal colors (based on [base16-shell](https://github.com/chriskempson/base16-shell)
+
+```
+./base16-shell/setup.sh
+```
+
+
+## Setup git
+
+```
+./git/setup.sh
+```
+
+## Setup nvim
+
+```
+.nvim/setup.sh
+```
 
 ## dev
 
