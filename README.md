@@ -54,12 +54,16 @@ cd osx
 ./nvim/setup.sh
 ```
 
-## dev
+## Development
 
 ### java
 
 Download and install JDK 8: <https://www.dropbox.com/s/c2qk8vfa8gd3khj/jdk-8u251-macosx-x64.dmg?dl=0>
 
+
+### python
+
+https://opensource.com/article/19/5/python-3-default-mac
 
 ### sdkman
 
