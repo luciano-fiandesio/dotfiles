@@ -22,6 +22,27 @@ Install `fisher` plugins
 fisher update
 ```
 
+### Install terminal colors (based on [base16-shell](https://github.com/chriskempson/base16-shell))
+
+```
+./base16-shell/setup.sh
+```
+
+Set the preferred colorscheme. E.g.
+
+
+```
+base16-gruvbox-dark-hard
+```
+
+
+### Setup fish shell configuration§		
+
+```
+./fish/setup.sh
+```
+
+
 ### Install brew formulas, casks and App Store apps
 
 ```
@@ -29,17 +50,30 @@ cd osx
 ./setup.sh
 ```
 
-### Install terminal colors (based on [base16-shell](https://github.com/chriskempson/base16-shell))
-
-```
-./base16-shell/setup.sh
-```
 
 ### Setup git
 
 ```
 ./git/setup.sh
 ```
+
+The `.gitconfig` file requires a local `.gitconfig.local` file, where sensitive info are stored.
+
+This is a template:
+
+```
+[user]
+  name = [name lastname]
+  email = [email]
+  useconfigonly = true
+  signingkey = [sign key] 
+[github]
+  user = [github user] 
+  token = [github token]
+[commit]
+  gpgSign = false
+```
+
 
 ### Setup tmux
 

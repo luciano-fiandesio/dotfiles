@@ -106,3 +106,5 @@
 [filesystem "AdoptOpenJDK|12.0.2|/dev/disk1s1"]
 	timestampResolution = 12000 nanoseconds
 	minRacyThreshold = 0 nanoseconds
+[sequence]
+	editor = interactive-rebase-tool

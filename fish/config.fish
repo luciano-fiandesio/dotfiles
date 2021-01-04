@@ -14,7 +14,7 @@ source ~/.config/fish/custom/__imports.fish
 
 # load custom functions
 for f in ~/.config/fish/custom/_functions/*.fish
-	set -Up fish_function_path $f
+    set -Up fish_function_path $f
 end
 
 # Base16 Shell
