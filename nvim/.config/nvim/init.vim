@@ -161,6 +161,13 @@ let g:tagbar_compact = 1
 let g:tagbar_iconchars = ['▶', '▼']
 " }}}
 
+" airline {{{
+let g:airline_theme = 'luna'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#branch#enabled=1
+" }}}
+
 " markdown {{{
 let g:vim_markdown_folding_disabled = 1
 " }}}
