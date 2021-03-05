@@ -7,3 +7,9 @@ set -gx FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
 
 # PGP
 set -x GPG_TTY (tty)
+
+# EDITOR
+set -Ux EDITOR nvim
+
+# helm v2
+set -g fish_user_paths "/usr/local/opt/helm@2/bin" $fish_user_paths
