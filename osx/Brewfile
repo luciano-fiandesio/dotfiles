@@ -100,6 +100,7 @@ brew "youtube-dl"
 brew "yubico-piv-tool"
 brew "cloudfoundry/tap/cf-cli"
 brew "federico-terzi/espanso/espanso"
+brew "rectangle"
 #brew "mongodb/brew/mongodb-community"
 brew "xwmx/taps/nb"
 brew "lazydocker"
@@ -181,7 +182,6 @@ mas "Day One", id: 1055511498
 mas "GIF Brewery 3", id: 1081413713
 mas "iMovie", id: 408981434
 mas "LogTail", id: 1073404370
-mas "Magnet", id: 441258766
 mas "MediaInfo", id: 510620098
 mas "Microsoft Remote Desktop", id: 715768417
 mas "MindNode", id: 1289197285
