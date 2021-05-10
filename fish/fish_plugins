@@ -1,9 +1,9 @@
 publicarray/update
 edc/bass
 laughedelic/brew-completions
-jethrokuan/fzf
 reitzig/sdkman-for-fish
 jethrokuan/z
 evanlucas/fish-kubectl-completions
 daenney/pyenv
 joseluisq/gitnow@2.7.0
+PatrickF1/fzf.fish

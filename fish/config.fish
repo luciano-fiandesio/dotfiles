@@ -29,6 +29,9 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
+pyenv init - | source
+
+
 # Enable starship prompt
 # https://starship.rs/
 starship init fish | source

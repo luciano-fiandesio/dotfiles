@@ -1,3 +1,5 @@
+# Update brew, neovim, pip
+
 function update
   echo 'Updating homebrew stuff...' | cowsay | lolcat -t
   brew update

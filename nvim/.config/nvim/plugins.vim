@@ -17,5 +17,6 @@ Plug 'majutsushi/tagbar', { 'dir': '~/.config/plugged/tagbar' }
 Plug 'airblade/vim-gitgutter', { 'dir': '~/.config/plugged/vim-gitgutter' }
 Plug 'tpope/vim-fugitive', { 'dir': '~/.config/plugged/vim-fugitive' }
 Plug 'udalov/kotlin-vim', { 'dir': '~/.config/plugged/kotlin-vim' }
+Plug 'ryanoasis/vim-devicons',{ 'dir':'~/.config/plugged/vim-devicons' } " icons in nerdtree and status bar'
 call plug#end()
 
