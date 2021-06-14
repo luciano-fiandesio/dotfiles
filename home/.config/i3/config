@@ -16,7 +16,7 @@
     set $ws8 "8"
     set $ws9 "9"
     set $ws10 "10"
-    set $termin "urxvt"
+    set $termin "kitty"
     set $ni --no-startup-id
     
     # scratchpad
@@ -27,7 +27,8 @@
 
 # #---MOD LAUNCHERS---# # 
 
-    bindsym $mod+Return             exec $termin
+    bindsym $mod+Return             exec --no-startup-id $termin
+    bindsym $mod+Shift+Return exec --no-startup-id $termin --title="i3-float"
     #bimdsym $mod+Shift+Return      exec $ni notify-send "$(~/.local/bin/popinfo)"
     bindsym $mod+Shift+q            kill    
     bindsym $mod+Shift+r            restart
@@ -53,6 +54,9 @@
     # compton (transaprency)
     # do not use daemon (-b) flag, it freezes my AMD card 
     exec --no-startup-id compton --config ~/.config/compton/compton.config
+
+    # mpDris2 (playerctl -> mpd bridge)
+    exec --no-startup-id mpDris2
 
 # #---MOVEMENT CONTROLS---# #
 
@@ -115,8 +119,8 @@
 
 # #---Audio controls---# #
 
-    bindsym $mod+bracketleft          exec $ni pactl set-sink-volume 1 -5%
-    bindsym $mod+bracketright         exec $ni pactl set-sink-volume 1 +5%
+    bindsym $mod+bracketleft          exec $ni amixer -D pulse sset Master 5%-
+    bindsym $mod+bracketright         exec $ni amixer -D pulse sset Master 5%+
 
 # #---Gaps---# #]
 
@@ -141,6 +145,8 @@
     for_window [class="Zoom Meeting"] floating enable
     for_window [class="Zoom - Licensed Account"] floating enable
     for_window [class="Settings"] floating enable
+    # Make window with specified title float
+    for_window [title="^i3-float$"]                                floating enable,    resize set 1280 720,    move position center
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
