@@ -148,7 +148,7 @@ nnoremap - :NERDTreeFind<CR>
 " Plugins
 
 " fzf {{{
-set rtp+=/usr/local/opt/fzf     " set path to fzf for osx (see https://github.com/junegunn/fzf/blob/master/README-VIM.md)
+set rtp+=/usr/bin/fzf     " set path to fzf for osx (see https://github.com/junegunn/fzf/blob/master/README-VIM.md)
 let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --glob "!{.git,.idea,build,dist,node_modules,.gradle}"'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }    " open fzf in a popup
 " search for files

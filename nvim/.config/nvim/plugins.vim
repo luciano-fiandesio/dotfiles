@@ -11,6 +11,7 @@ Plug 'vim-airline/vim-airline', { 'dir': '~/.config/plugged/vim-airline' }
 Plug 'vim-airline/vim-airline-themes', { 'dir':'~/.config/plugged/vim-airline-themes' }
 Plug 'scrooloose/nerdtree', { 'dir': '~/.config/plugged/nerdtree' }
 Plug 'junegunn/fzf.vim', { 'dir': '~/.config/plugged/fzf' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'plasticboy/vim-markdown', { 'dir': '~/.config/plugged/vim-markdown' }
 Plug 'vim-jp/vim-java', { 'dir': '~/.config/plugged/vim-java' }
 Plug 'majutsushi/tagbar', { 'dir': '~/.config/plugged/tagbar' }
