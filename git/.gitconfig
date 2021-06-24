@@ -1,110 +1,98 @@
 [include]
- path = ~/.gitconfig.local
-
+    path = ~/.gitconfig.local
 [credential]
-  helper = cache --timeout=3600
+    # save credentials in memory for 3600 seconds
+    helper = cache --timeout=3600
 [core]
-  abbrev = 12
-  quotepath = false
-  untrackedcache = true
-  #whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	editor = vim
-  excludesfile = ~/.config/git/ignore
-  attributesFile = ~/.config/git/info/attributes
-  hooksPath = ~/.config/git/hooks
-  pager = diff-so-fancy | less --tabs=4 -RFX
-  autocrlf = input
+    abbrev = 12
+    # from git 2.8.0
+    untrackedcache = true
+    #whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    editor = vim
+    # use delta [https://github.com/dandavison/delta]
+    pager = delta --dark 
+    # Git will not perform any conversion when checking out text files. 
+    # When committing text files, CRLF wiil be converted to LF.
+    # Use input for Linux/OSX development
+    autocrlf = input
+[pager]
+    diff   = delta
+    log    = delta
+    reflog = delta
+    show   = delta
 [color]
-  ui = true
-  pager = true
+    ui = true
+    pager = true
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 [color "diff"]
-  meta = 227
-  commit = 227 bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+    meta = 227
+    commit = 227 bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 [color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-[commit]
-  #template = ~/.config/git/commit_message.txt
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [interactive]
-  singleKey = true
+    # https://git-scm.com/docs/git-config#Documentation/git-config.txt-interactivediffFilter
+    diffFilter = delta --color-only
 [status]
-  showUntrackedFiles = all
+    showUntrackedFiles = all
 [fetch]
-  prune = true
+    # Remove unreachable objects on fetch  
+    prune = true
 [pull]
-  rebase = true
+    # use --rebase on pull
+    rebase = true
 [push]
-  default = simple
-  followTags = true
+    followTags = true
 [branch]
-  autoSetupRebase = always
+    autoSetupRebase = always
 [rebase]
-  abbreviateCommands = true
-  autoSquash = true
-  autoStash = true
+    abbreviateCommands = true
+    autoSquash = true
+    autoStash = true
 [rerere]
-  enabled = true
-  autoUpdate = true
+    enabled = true
+    autoUpdate = true
 [grep]
-  lineNumber = true
-  fullname = true
-  threads = 3
+    fullname = true
+    threads = 3
 [diff]
-  indentHeuristic = true
-  mnemonicPrefix = true
-  renames = copies
-  tool = Kaleidoscope
-[diff "exif"]
-  textconv = exiftool
+    indentHeuristic = true
+    mnemonicPrefix = true
+    renames = copies
 [difftool]
-  prompt = false
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    prompt = false
 [merge]
-  ff = only
-  conflictStyle = diff3
-  tool = Kaleidoscope
+    ff = only
+    conflictStyle = diff3
 [mergetool]
-  prompt = false
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustexitcode = true
+    prompt = false
 [tag]
-  sort = version:refname
+    sort = version:refname
 [transfer]
-  fsckobjects = true
-[url "https://github.com/"]
-  insteadOf = gh:
-[url "https://github.com/bkuhlmann/"]
-  insteadOf = bk:
-[url "https://git.heroku.com"]
-  insteadOf = heroku:
+    fsckobjects = true
 [remote "origin"]
-  fetch = +refs/pull/*/head:refs/remotes/pull_requests/*
+    fetch = +refs/pull/*/head:refs/remotes/pull_requests/*
 [include]
-  path = /Users/luciano/.gitalias.txt
-[alias]
-  s = status -sb
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[filesystem "Oracle Corporation|1.8.0_221|/dev/disk1s1"]
-	timestampResolution = 1001 milliseconds
-	minRacyThreshold = 0 nanoseconds
-[filesystem "AdoptOpenJDK|12.0.2|/dev/disk1s1"]
-	timestampResolution = 12000 nanoseconds
-	minRacyThreshold = 0 nanoseconds
+    path = ~/.gitalias.txt
 [sequence]
-	editor = interactive-rebase-tool
+    editor = interactive-rebase-tool
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
