@@ -8,11 +8,9 @@ secondary = #748aa6
 alert = #FF410D
 
 [bar/main]
-#monitor = ${env:MONITOR:eDP1}
+enable-ipc = true
 width = 100%
 height = 27
-;offset-x = 2%
-;offset-y = 1%
 radius = 0.0
 fixed-center = true
 
@@ -33,11 +31,13 @@ module-margin-right = 2
 
 font-0 = "Noto Sans:pixelsize=10;1"
 font-1 = "Siji:size=8:antialias=false;1"
-font-2 = "FontAwesome:size=8:antialias=false;1"
+font-2 = "Font Awesome 5 Free:size=8:antialias=false;1"
+font-3 = "Font Awesome 5 Free Solid:size=8:antialias=false;1"
 
 modules-left = i3 cpu temperature memory filesystem
+#modules-left = i3 cpu temperature memory filesystem
 modules-center = volume
-modules-right = xkeyboard notification-github date powermenu
+modules-right = xkeyboard date powermenu
 ;bumblebee redshift xkeyboard battery updates date powermenu
 
 tray-position = right
@@ -106,14 +106,14 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.alert}
 label = %percentage%%
 
 [module/temperature]
 type = internal/temperature
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp2_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp2_input 
 thermal-zone = 0
 warn-temperature = 60
 
@@ -126,7 +126,7 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
+ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
@@ -144,7 +144,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home
+#mount-1 = /home
 
 label-mounted = %{F#267fb5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -173,9 +173,9 @@ bar-volume-foreground-6 = ${colors.alert}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = 
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = 
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 

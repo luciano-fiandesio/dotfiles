@@ -19,9 +19,7 @@ end
 source ~/.config/fish/custom/__imports.fish
 
 # load custom functions
-for f in ~/.config/fish/custom/_functions/*.fish
-    set -Up fish_function_path $f
-end
+set -Up fish_function_path ~/.config/fish/custom/_functions
 
 # Base16 Shell
 if status --is-interactive
@@ -29,7 +27,7 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
-pyenv init - | source
+status is-login; and pyenv init --path | source
 
 
 # Enable starship prompt

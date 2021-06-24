@@ -7,3 +7,5 @@ evanlucas/fish-kubectl-completions
 daenney/pyenv
 joseluisq/gitnow@2.7.0
 PatrickF1/fzf.fish
+jorgebucaran/fisher
+jorgebucaran/nvm.fish
