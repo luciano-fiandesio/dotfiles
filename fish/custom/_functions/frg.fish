@@ -2,7 +2,7 @@
 #     - Requirements: fzf, rg, neovim
 
 function frg
-   set selected (rg --no-heading --line-number private | fzf -0 -1 | awk -F: '{print $1, $2}')
+   set selected (rg --no-heading --line-number $argv | fzf -0 -1 | awk -F: '{print $1, $2}')
    echo $selected | read -t file line
    nvim $file +$line
 end
