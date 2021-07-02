@@ -1,0 +1,28 @@
+# vim: filetype=muttrc
+
+set mbox_type = Maildir
+set folder = "~/.local/share/email/"
+set sendmail = "msmtp -a fastmail"
+
+source ~/.config/neomutt/settings
+source ~/.config/neomutt/sidebar
+#source ~/.config/neomutt/colors
+source ~/.config/neomutt/mutt-colors-solarized-dark-256.muttrc
+source ~/.config/neomutt/mappings
+
+## Account settings
+set from = domperignon@fastmail.com 
+set realname = "Luciano Fiandesio"
+
+
+# mailbox settings
+set spoolfile = +INBOX
+set postponed = +Drafts
+set record = +"Sent Items"
+set trash = +Trash
+set mbox= +Archive
+
+#mailboxes =`find ~/.local/share/email/  -mindepth 1 -maxdepth 1 -type d ! -name "*Bin*" ! -name "*Spam*" ! -name "*Drafts*" ! -name "*.notmuch*" -printf '"%p"\0' | xargs -0` 
+mailboxes ="INBOX" "+Sent Items" 
+macro index $ "<sync-mailbox><shell-escape>mbsync --all --config ~/.config/mbsync/.mbsyncrc<enter><sync-mailbox>" "Refresh"
+

@@ -1,0 +1,41 @@
+# vim: filetype=muttrc
+bind index,pager i noop
+bind index,pager g noop
+bind index \Cf noop
+
+bind index j next-entry
+bind index k previous-entry
+
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+
+bind editor <space> noop
+
+bind index G last-entry
+bind index gg first-entry
+
+bind pager,attach h exit
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+
+bind index D delete-message
+bind index U undelete-message
+# show only messages matching query
+bind index L limit
+bind index h noop
+bind index l display-message
+bind index,query <space> tag-entry
+
+bind index,pager H view-raw-message
+bind browser l select-entry
+bind pager,browser gg top-page
+bind pager,browser G bottom-page
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+bind index,pager S sync-mailbox
+# reply to all
+bind index,pager R group-reply
+bind editor <Tab> complete-query
+
+

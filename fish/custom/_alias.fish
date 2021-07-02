@@ -21,3 +21,7 @@ alias j14 'sdk use java 14.0.2.hs-adpt'
 
 alias nn="vim '+normal Go' ~/resiliosync/always-up/documents/notes.txt"
 alias b="git branch | fzf | xargs git checkout"
+
+## VM
+alias win="VBoxSDL --startvm Windows10"
+
