@@ -110,6 +110,7 @@ assign [class="^Firefox"]          $ws1
 
 # Jetbrain
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [class="jetbrains-idea" title="win0"] floating enable;
 # Keybase
 for_window [class="Keybase"] floating enable
 # Shutter
@@ -139,6 +140,9 @@ bindsym $mod+Shift+F11 resize set 1440 px 900 px, move absolute position center
 
 # Launcher (Rofi)
 bindsym $mod+d exec rofi -lines 12 -padding 18 -width 30 -location 0 -show drun -sidebar-mode -columns 1 -font 'Noto Sans 8'
+
+# bind print to flameshot for screenshots
+bindsym Print exec flameshot gui
 
 mode "resize" {
    # These bindings trigger as soon as you enter the resize mode
