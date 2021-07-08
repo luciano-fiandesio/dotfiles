@@ -9,6 +9,10 @@ This dotfiles should work on Linux (I use Arch) and OSX.
 - [msmtp](https://marlam.de/msmtp/)
 - [neomutt](https://neomutt.org/)
 
+Misc utils:
+
+- [ranger](https://github.com/ranger/ranger)
+
 ## Email provider password setup
 
 Encrypt the email provider password using gpg
@@ -28,5 +32,7 @@ Make the passphrase file visible to the current user only
 ## Create symbolic links to dotfiles
 
 `./setup.sh`
+
+## Shortcuts
 
 
