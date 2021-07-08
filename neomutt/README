@@ -17,9 +17,16 @@ Encrypt the email provider password using gpg
 
 `user@email.com` should be set to a recipient for a key created just for this purpose.
 
-Save the gpg key passphrase to disc
+Save the gpg key passphrase 
 
-`echo "key passphrase" > ~/.passphrase`
+`echo "{{key passphrase}}" > ~/.passphrase`
 
+Make the passphrase file visible to the current user only
+
+`chmod 600 ~/.passphrase`
+
+## Create symbolic links to dotfiles
+
+`./setup.sh`
 
 

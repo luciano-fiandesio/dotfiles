@@ -1,3 +1,5 @@
 setup.sh
 msmtprc.template
 README
+mailcap.linux
+mailcap.osx
