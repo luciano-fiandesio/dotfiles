@@ -2,17 +2,25 @@
 
 set mbox_type = Maildir
 set folder = "~/.local/share/email/"
-set sendmail = "msmtp -a fastmail"
+set sendmail = "msmtp"
 
 source ~/.config/neomutt/settings
 source ~/.config/neomutt/sidebar
-#source ~/.config/neomutt/colors
 source ~/.config/neomutt/mutt-colors-solarized-dark-256.muttrc
 source ~/.config/neomutt/mappings
 
 ## Account settings
-set from = domperignon@fastmail.com 
-set realname = "Luciano Fiandesio"
+set from = luciano@fiandes.io
+# When replying to a message that was sent to foo@meribold.org, ignore the "from"
+# configuration variable and reply from foo@meribold.org.  See
+# <file:///usr/share/doc/neomutt/manual.html#reverse-name> and
+# <file:///usr/share/doc/neomutt/manual.html#reverse-realname> and
+# <file:///usr/share/doc/neomutt/manual.html#alternates>.
+set reverse_name
+# file:///usr/share/doc/neomutt/manual.html#reverse-name
+unset reverse_realname
+# file:///usr/share/doc/neomutt/manual.html#alternates
+alternates '@lucianofiandesio.com$'
 
 
 # mailbox settings
@@ -22,7 +30,20 @@ set record = +"Sent Items"
 set trash = +Trash
 set mbox= +Archive
 
-#mailboxes =`find ~/.local/share/email/  -mindepth 1 -maxdepth 1 -type d ! -name "*Bin*" ! -name "*Spam*" ! -name "*Drafts*" ! -name "*.notmuch*" -printf '"%p"\0' | xargs -0` 
-mailboxes ="INBOX" "+Sent Items" 
+#mailboxes `cat ~/.local/share/email/mailboxes`
+#mailboxes `find ~/.local/share/email/ -type d -name cur -printf '%h\n'| tr "\n" " "`
+#mailboxes `echo ~/.local/share/email/*`
+named-mailboxes "----INBOX" =INBOX
+mailboxes =INBOX \
+          =Drafts \
+          ="Sent Items" \
+          =Archive \
+          ="paper trail" \
+          ="Reply Later" \
+          ="Set Aside" \
+          ="the feed" \
+          ="services" \
+          ="services/berlin-sharing" \
+          ="berlin" \
+          ="berlin/kufsteiner-7"
 macro index $ "<sync-mailbox><shell-escape>mbsync --all --config ~/.config/mbsync/.mbsyncrc<enter><sync-mailbox>" "Refresh"
-

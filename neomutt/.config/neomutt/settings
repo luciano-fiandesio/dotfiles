@@ -1,63 +1,151 @@
-# vim: filetype=muttrc
+# Neomutt main configuration.
+#
+# Inspirations:
+#
+# https://github.com/meribold/dotfiles/blob/master/home/config/neomutt/neomuttrc
+# https://github.com/farrokhi/dotfiles/blob/master/.muttrc
 
 # set editor to neovim
-set editor = "nvim"
+# move cursor after the headers on email editing
+# see https://stackoverflow.com/a/57606354
+set editor = "nvim \"+/^$/\" \"+nohl\" \"+ normal o\" \"+startinsert\"
 
-set my_name = "Luciano Fiandesio"
-set imap_check_subscribed
+set realname = "Luciano Fiandesio"
 
-# main options
-set envelope_from
-set edit_headers                     # show headers when composing
-set fast_reply                       # skip to compose when replying
-set askcc                            # ask for CC:
-set fcc_attach                       # save attachments with the body
-set forward_format = "Fwd: %s"       # format of subject when forwarding
-set forward_decode                   # decode when forwarding
-set attribution = "On %d, %n wrote:" # format of quoting header
-set reply_to                         # reply to Reply to: field
-set reverse_name                     # reply as whomever it was to
-set include                          # include message in replies
-set forward_quote                    # include message in forwards
-set text_flowed
-unset sig_dashes                     # no dashes before sig
-unset mime_forward                   # forward attachments as part of body
-#unset help                           # No help bar at the top of index
-# set status_on_top                    # Status bar on top of index
-#set tmpdir = ~/Programs/neomutt/temp # where to keep temp files
+# Default is "us-ascii:iso-8859-1:utf-8".  Really?
+# http://wiki.archlinux.org/index.php/Mutt#E-mail_character_encoding
+set send_charset="utf-8"
 
-unset confirmappend      # don't ask, just do!
-set quit                 # don't ask, just do!!
-unset mark_old           # read/new is good enough for me
-set beep_new             # bell on new mails
-set pipe_decode          # strip headers and eval mimes when piping
-set thorough_search      # strip headers and eval mimes before searching
-set timeout = 0
-set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"
-# status bar, date format, finding stuff etc.
-set status_chars = " *%A"
-set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
-set date_format = "%d.%m.%Y %H:%M"
-set sort = threads
-set sort_aux = reverse-last-date-received
-set uncollapse_jump
-set sort_re
-set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
-set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-set send_charset = "utf-8:iso-8859-1:us-ascii"
-set charset = "utf-8"
-set arrow_cursor = "no" # Change `color indicator` depending 
+# Empty by default.  This fixes most messages without character encoding indication that I
+# get (Mutt assumes "us-ascii" when assumed_charset is empty).
+set assumed_charset="cp1252"
+# Character set alias: treat iso-8859-1 as an alias for cp1252.
+charset-hook ^iso-8859-1$ cp1252
 
-# Pager View Options
-set pager_index_lines = 10  # Shows 10 lines of index when pager is active
-set pager_context = 3
+# Taken from <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.  Sort by
+# [threads](http://www.mutt.org/doc/manual/#threads), displaying them as a tree structure.
+# Sort entire threads (and messages that aren't part of a thread) in relation to each
+# other by the date the thread's most recent message was received (or the date the message
+# was received).  Recent threads and messages go to the top.
+set sort=threads
+set sort_aux=reverse-last-date-received
+set strict_threads
+
+# Setting `autoedit` along with `edit_headers` makes Mutt immediately open Vim when
+# composing a new message.  Common wisdom is to "write the introduction last".  Assuming
+# this advice can be at all extended to writing email, it surely doesn't make sense to
+# prompt for a subject line before allowing composition of a mail's body.
+set autoedit
+set edit_headers
+# Also don't ask whether we want to recall a postponed message when hitting `m`.  We can
+# use `R` (`recall-message`) to do that.
+set recall=no
+
+# the initial prompt for recipients and subject are skipped when replying to messages, 
+# and the initial prompt for subject is skipped when forwarding messages.
+set fast_reply
+
+# See <https://neomutt.org/guide/tuning>.
+set read_inc=100
+
+# When in the pager (reading a message), still show a few lines of the index (list of
+# messages) for context.  I got this from Steve Losh's blog post.
+set pager_index_lines=10
+
+# TODO: explain.
+set imap_delim_chars='/'
+
+# Ask fewer questions.  TODO: explain more.
+set delete=yes
+set include=yes
+set reply_to=yes
+
+# Stuff found at <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.  TODO:
+# explain.
+set wait_key=no
 set pager_stop
 set menu_scroll
-set tilde
 unset markers
 
-set mailcap_path = ~/.config/neomutt/mailcap
-set header_cache = "~/.cache/mutt"
+# From <https://wiki.archlinux.org/index.php/mutt#Speed_up_folders_switch>.  Don't pause
+# to show info messages (for example when opening another folder).  See
+# <https://dev.mutt.org/doc/manual.html#sleep-time>.
+set sleep_time=0
+# Check for new mail once per minute, 12 times less often than the default.  Mutt lags
+# every time it checks for new mail.  Lag once a minute is much more tolerable than lag
+# every 5 seconds.  "All mail clients suck.  This one just sucks less."
+set mail_check=60
+
+# composing messages with no subject given at the subject prompt will never be aborted
+set abort_nosubject=no
+# never abort composition
+set abort_unmodified=no
+# dashes before sig
+set sig_dashes
+
+# Paths ----------------------------------------
+
+# TODO look into alias: https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide/Aliases
+# set alias_file="~/.config/neomutt/aliases"
+# source $alias_file
+
+# Cache message headers here.  This takes very little space and makes opening large
+# folders much faster.  See <file:///usr/share/doc/neomutt/manual.html#header-caching>.
+set header_cache     = "~/.cache/mutt"
+
+# Make things faster at the cost of a negligible amount of disk space.  See
+# <file:///usr/share/doc/neomutt/manual.html#body-caching>.
 set message_cachedir = "~/.cache/mutt"
 
-#set query_command = "khard email --parsable --search-in-source-files '%s'"
+# Based on <https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML>.  TODO: add a keyboard
+# macro like the one in the ArchWiki article but for viewing HTML attachments with Lynx?
+set mailcap_path     = "~/.config/neomutt/mailcap"
+
+set signature        = "~/.config/neomutt/fastmail-signature"
+
+# TODO enable khard
+# Like GooBook, Khard is a Python program, and it's not fast enough.  TODO: maybe check
+# out <https://github.com/pimutils/mates.rs>.
+# set query_command="khard email --parsable '%s'"
+# The editor menu is "command-line mode", i.e., what you when hitting colon.  See
+# <file:///usr/share/doc/neomutt/manual.html#editor-map>.
+# bind editor <Tab> complete-query
+
+# When a message contains both plain text and HTML, prefer viewing plain text.
+alternative_order text/plain text/html
+auto_view text/html
+# Display text representations of any attached PDFs in the pager using `pdftotext`
+# (specified in the mailcap file).
+auto_view application/pdf
+
+# Customize the message [index format][].  Use the [folder-hook][] command and the
+# [cond-date patch][] to keep it concise.  The formats used for date and time are
+# derivative of [ISO 8601][].  See printf(3) and strftime(3).
+# [index format]: http://www.mutt.org/doc/manual/#index-format
+# [folder-hook]: http://www.mutt.org/doc/manual/#folder-hook
+# [cond-date patch]: http://www.mutt.org/doc/manual/#folder-hook
+# [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
+folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40.40F  %s%*   %4c'" 
+folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40.40t  %s%*   %4c'"
+
+# Customize the status line at the bottom.  The format string reduces the amount of
+# information compared to the default and doesn't use hyphens for padding.  See
+# <http://www.mutt.org/doc/manual/#status-format>.
+set status_format="%f%?V?/%V? [%m%?M?, %M shown?%?n?, %n new?%?o?, %o old?%?d?, %d deleted?%?F?, %F flagged?%?t?, %t tagged?%?p?, %p postponed?] %> %P"
+
+# I don't think any of the information we can show in the status line while in the compose
+# menu is useful (see <file:///usr/share/doc/neomutt/manual.html#compose-format>).  Also
+# get rid of the hyphens again.
+set compose_format=
+
+# Customize the status line shown when reading a message (the status line for the pager).
+# See <https://dev.mutt.org/doc/manual.html#pager-format>.
+set pager_format="%s%*   %P"
+
+# See <file:///usr/share/doc/neomutt/manual.html#attach-format> and
+# <file:///usr/share/doc/neomutt/manual.html#nested-if>.  The "%u%D" part of the default
+# format string is about whether an attachment was deleted or is marked for deletion.  I
+# don't delete attachments, so I dropped it.  TODO: can we use color and drop "%t"?
+set attach_format="%T%?t?*?%<d?%d%>   [%m/%M, %e%?C?, %C?]  %4s&[%m/%M]%>   [%e%?C?, %C?]  %4s>"
+
+# vim: nowrap fdm=marker

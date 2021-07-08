@@ -2,6 +2,7 @@
 bind index,pager i noop
 bind index,pager g noop
 bind index \Cf noop
+bind index \Cb noop
 
 bind index j next-entry
 bind index k previous-entry
@@ -19,7 +20,7 @@ bind pager j next-line
 bind pager k previous-line
 bind pager l view-attachments
 
-bind index D delete-message
+bind index,pager D delete-message
 bind index U undelete-message
 # show only messages matching query
 bind index L limit
@@ -38,4 +39,18 @@ bind index,pager S sync-mailbox
 bind index,pager R group-reply
 bind editor <Tab> complete-query
 
+# move mail to 'paper trail'
+macro index ,pt ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=paper trail\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+# use 'A' to attach a file using ranger (https://github.com/lordskh/Neomutt-File-Picker)
+macro compose A "<shell-escape>bash $HOME/.config/neomutt/mutt_filepicker<enter><enter-command>source /tmp/muttattach<enter><shell-escape>bash $HOME/.config/neomutt/mutt_filepicker clean<enter>" "Attach with your file manager"
+# use 'W' in attach view to save to Downloads
+macro attach W <save-entry><kill-line>$HOME/Downloads 
+# Call urlview on message
+macro index,pager    \Cb "<pipe-message>urlscan -d               <enter>"   'Call urlview on message'
+macro attach,compose \Cb "<pipe-entry>urlscan -d                 <enter>"   'Call urlview on message'
+# use 'esc+o' to open mail as html in browser 
+macro index,pager    \eo "<pipe-message>$HOME/.config/neomutt/viewhtmlmail       <enter>"   'View HTML in browser'
 
+macro compose        \eh "\
+<filter-entry>pandoc -s -f markdown -t html <enter>y\
+<edit-type>text/html; charset=utf-8       <enter>"                        'Convert Markdown to HTML'
