@@ -1,0 +1,25 @@
+defaults
+auth           on
+tls            on
+
+# linux
+#tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+# osx
+#tls_trust_file /usr/local/etc/openssl/cert.pem
+
+# Skip certificate checks. Vulnerable to MITM attacks: avoid
+#tls_nocertcheck
+
+logfile        ~/.msmtp.log
+
+# Fastmail 
+account        fastmail
+host           smtp.fastmail.com
+port           465
+from           lfi@fastmail.fm 
+user           lfi@fastmail.fm
+tls_starttls   off
+passwordeval "gpg -q --for-your-eyes-only --no-tty --exit-on-status-write-error --pinentry-mode loopback --passphrase-file $HOME/.passphrase -d $HOME/email.secret.gpg"
+
+account default : fastmail

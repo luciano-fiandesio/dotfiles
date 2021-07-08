@@ -3,7 +3,7 @@ IMAPAccount fastmail
 Host imap.fastmail.com
 Port 993
 User lfi@fastmail.fm
-PassCmd "gpg -q --for-your-eyes-only --no-tty --exit-on-status-write-error --pinentry-mode loopback --passphrase-file /home/luciano/pass.txt -d /home/luciano/fastmail.fm.gpg"
+PassCmd "gpg -q --for-your-eyes-only --no-tty --exit-on-status-write-error --pinentry-mode loopback --passphrase-file $HOME/.passphrase -d $HOME/email.secret.gpg"
 SSLType IMAPS
 SSLVersions TLSv1.2
 
@@ -22,7 +22,7 @@ SubFolders Verbatim
 Channel fastmail
 Far :fastmail-remote:
 Near :fastmail-local:
-Patterns  "INBOX" "Archive" "Sent Items" "Junk Mail" "Drafts" "Trash" "berlin" "paper trail" "the feed" "Set Aside" "work" "travel" "services" "family" "job-proposal" "Reply Later"
+Patterns  "INBOX" "Archive" "Sent Items" "Junk Mail" "Drafts" "Trash" "berlin/*" "paper trail" "the feed" "Set Aside" "work" "travel" "services/*" "family" "job-proposal" "Reply Later"
 # Do not delete message
 Expunge None
 # Makes sure the date of the arrival stays the same when you move messages around. 

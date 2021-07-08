@@ -1,0 +1,25 @@
+# Neomutt
+
+My Neomutt setup is quite simple and uses only one email provider: [Fastmail](http://www.fastmail.com).
+This dotfiles should work on Linux (I use Arch) and OSX.
+
+## Requirements
+
+- [mbsync](https://isync.sourceforge.io/mbsync.html)
+- [msmtp](https://marlam.de/msmtp/)
+- [neomutt](https://neomutt.org/)
+
+## Email provider password setup
+
+Encrypt the email provider password using gpg
+
+`gpg --decrypt -r user@email.com email.secret`
+
+`user@email.com` should be set to a recipient for a key created just for this purpose.
+
+Save the gpg key passphrase to disc
+
+`echo "key passphrase" > ~/.passphrase`
+
+
+
