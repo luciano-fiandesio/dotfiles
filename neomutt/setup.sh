@@ -5,7 +5,7 @@ if ! [ -x "$(command -v stow)" ]; then
   exit 1
 fi
 
-#stow -v -d ~/.dotfiles/ -S neomutt -t ~/ 
+stow -v -d ~/.dotfiles/ -S neomutt -t ~/ 
 
 # generate msmtp config file
 TEMPLATE="msmtprc.template"
