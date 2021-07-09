@@ -12,11 +12,11 @@ TEMPLATE="msmtprc.template"
 case $(uname | tr '[:upper:]' '[:lower:]') in
       linux*)
         sed  "/ca-certificates/s/^#//g" $TEMPLATE > $HOME/.msmtprc
-        cp mailcap/mailcap.linux .config/neomutt/mailcap 
+        cp mailcap.template/mailcap.linux .config/neomutt/mailcap 
         ;;
       darwin*)
         sed  "/cert.pem/s/^#//g" $TEMPLATE > $HOME/.msmtprc
-        cp mailcap/mailcap.osx .config/neomutt/mailcap 
+        cp mailcap.template/mailcap.osx .config/neomutt/mailcap 
         ;;
       *)
         echo "Hi, stranger!"
