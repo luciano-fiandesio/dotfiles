@@ -6,8 +6,8 @@ function bwcopy --description "Find and copy a Bitwarden password"
     bw list items \
     | jq -r '.[] | [.name, .login.username // "", .id] | @tsv' \
     | column -t -s \t \
-    | fzf-tmux --with-nth 1..-2 --preview-window down:2 \
-    --preview 'bw get item (echo {} | awk \'{print $NF}\') | jq -r \'.login.uris | .[] | .uri // empty \'' \
+    | fzf-tmux --sync --with-nth 1..-2 --preview-window down:2 \
+    #--preview 'bw get item (echo {} | awk \'{print $NF}\') | jq -r \'.login.uris | .[] | .uri // empty \'' \
     | awk '{print $NF}'
     ) | jq -r '.login.password' | xclip -selection clipboard
   end
