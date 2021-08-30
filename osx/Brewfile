@@ -11,6 +11,7 @@ tap "homebrew/services"
 tap "mongodb/brew"
 tap "xwmx/taps"
 cask "osxfuse"
+brew "iterm2"
 brew "age"
 brew "argyll-cms"
 brew "readline"
@@ -38,6 +39,7 @@ brew "fish"
 brew "fortune"
 brew "fzf"
 brew "git"
+brew "git-delta"
 brew "git-interactive-rebase-tool" # https://gitrebasetool.mitmaro.ca
 brew "git-when-merged" #https://github.com/mhagger/git-when-merged
 brew "gnupg"
@@ -100,7 +102,6 @@ brew "youtube-dl"
 brew "yubico-piv-tool"
 brew "cloudfoundry/tap/cf-cli"
 brew "federico-terzi/espanso/espanso"
-brew "rectangle"
 brew "numi" # calculator
 #brew "mongodb/brew/mongodb-community"
 brew "xwmx/taps/nb"
@@ -119,7 +120,8 @@ cask "calibre"
 cask "cloudmounter"
 cask "coconutbattery"
 cask "contexts"
-cask "cyberduck"
+cask "rectangle"
+#cask "cyberduck"
 cask "displaycal"
 cask "docker"
 cask "dropbox"
@@ -134,8 +136,8 @@ cask "hazel"
 cask "iina"
 cask "imageoptim"
 cask "insomnia"
-cask "jetbrains-toolboxs"
-cask "jdownloader"
+#cask "jetbrains-toolboxs"
+#cask "jdownloader"
 cask "karabiner-elements"
 cask "keka"
 cask "keybase"
@@ -147,11 +149,13 @@ cask "microsoft-office"
 #cask "mono-mdk-for-visual-studo"
 #cask "moter"
 cask "mpv"
+cask "mullvadvpn"
+cask "musicbrainz-picard"
 cask "notion"
 cask "obs" # Streaming and recording (https://obsproject.com)
 #cask "path-finder"
 #cask "paw"
-cask "popclip"
+#cask "popclip"
 #cask "postbox"
 cask "resilio-sync"
 cask "signal"
@@ -163,8 +167,7 @@ cask "standard-notes"
 #cask "sublime-merge"
 cask "sublime-text"
 cask "textual"
-cask "transmit"
-cask "tunnelbear"
+#cask "transmit"
 #cask "typinator"
 cask "veracrypt"
 cask "visual-studio-code"
@@ -177,7 +180,7 @@ cask "yubico-authenticator"
 mas "Annotate", id: 918207447
 mas "Day One", id: 1055511498
 mas "GIF Brewery 3", id: 1081413713
-mas "iMovie", id: 408981434
+#mas "iMovie", id: 408981434
 mas "LogTail", id: 1073404370
 mas "MediaInfo", id: 510620098
 mas "Microsoft Remote Desktop", id: 715768417
@@ -185,9 +188,9 @@ mas "MindNode", id: 1289197285
 mas "Renamer", id: 402286241
 mas "Skitch", id: 425955336
 mas "Trello", id: 1278508951
-mas "unDock", id: 402359583
+#mas "unDock", id: 402359583
 mas "WiFi Signal", id: 525912054
 mas "YubiKey Personalization Tool", id: 638161122
-mas "Clocker", id: 1056643111
+#mas "Clocker", id: 1056643111
 mas "PopClip", id: 445189367
-
+mas "Mp3tag", id: 1532597159

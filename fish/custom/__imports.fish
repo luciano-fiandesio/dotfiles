@@ -1,7 +1,9 @@
 # Source Exports
 source ~/.config/fish/custom/_export.fish
 
-source ~/.config/fish/custom/_export.local.fish
+if test -e ~/.config/fish/custom/_export.local.fish
+  source ~/.config/fish/custom/_export.local.fish
+end 
 # Source Aliases
 source ~/.config/fish/custom/_alias.fish
 
