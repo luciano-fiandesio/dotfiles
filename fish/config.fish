@@ -4,9 +4,6 @@ set --global --export DOTFILES_REPO ~/.dotfiles
 # no greeting
 set fish_greeting
 
-# Setting up the Path
-set -e fish_user_paths
-
 # homebrew
 switch (uname)
     case Linux
@@ -19,7 +16,10 @@ end
 source ~/.config/fish/custom/__imports.fish
 
 # load custom functions
-set -Up fish_function_path ~/.config/fish/custom/_functions
+#set -U fish_function_path ~/.config/fish/custom/_functions $fish_function_path
+for f in ~/.config/fish/custom/_functions/*
+  source $f
+end
 
 # Base16 Shell
 if status --is-interactive
