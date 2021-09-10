@@ -141,6 +141,9 @@ bindsym $mod+Shift+F11 resize set 1440 px 900 px, move absolute position center
 # Launcher (Rofi)
 bindsym $mod+d exec rofi -lines 12 -padding 18 -width 30 -location 0 -show drun -sidebar-mode -columns 1 -font 'Noto Sans 8'
 
+# Rofi + Clipster clipboard manager
+bindsym $mod+shift+v exec --no-startup-id clipster -o -n 0 -0 | rofi -i -dmenu -theme gruvbox-dark -sep '\x00' -eh 2 -p paste | sed -ze 's/\n$//' | clipster
+
 # bind print to flameshot for screenshots
 bindsym Print exec flameshot gui
 
@@ -200,6 +203,12 @@ exec --no-startup-id nm-applet
 # volume (use pamixer for pipewire)
 bindsym $mod+bracketright          exec --no-startup-id pamixer -i 5 # increase 5%
 bindsym $mod+bracketleft           exec --no-startup-id pamixer -d 5 # decrease 5%
+
+# dunst
+exec --no-startup-id dunst
+
+# Clipster as clipboard manager daemon
+exec --no-startup-id clipster -d
 
 # i3-gaps
 smart_gaps on
