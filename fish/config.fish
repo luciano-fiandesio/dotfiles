@@ -15,6 +15,9 @@ switch (uname)
 end
 source ~/.config/fish/custom/__imports.fish
 
+# asdf
+source ~/.asdf/asdf.fish
+
 # load custom functions
 #set -U fish_function_path ~/.config/fish/custom/_functions $fish_function_path
 for f in ~/.config/fish/custom/_functions/*
