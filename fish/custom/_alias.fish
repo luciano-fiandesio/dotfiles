@@ -4,11 +4,11 @@ function g ; git $argv ; end
 alias ll 'exa --long --header --git -a'
 alias cat='bat'
 alias ss='hub sync'
-alias vim='nvim'
+#alias vim='nvim'
+alias vim='~/.local/bin/lvim'
 
 ## EDITOR
-
-alias v="nvim"
+alias v="vim"
 
 ## JAVA
 
