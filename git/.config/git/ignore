@@ -196,3 +196,5 @@ fabric.properties
 .settings
 .classpath
 .factorypath
+
+.idea
