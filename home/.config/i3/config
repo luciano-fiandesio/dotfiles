@@ -122,7 +122,8 @@ for_window [class="mpv"] floating enable
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="Zoom Meeting"] floating enable
 for_window [class="Zoom - Licensed Account"] floating enable
-
+for_window [class="Slack"] floating disable
+for_window [class="Slack" title="mini panel"] floating enable
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
