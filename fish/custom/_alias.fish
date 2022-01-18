@@ -2,6 +2,7 @@
 
 function g ; git $argv ; end
 alias ll 'exa --long --header --git -a'
+alias llt 'exa --long --header --git --sort=newest --reverse'
 alias cat='bat'
 alias ss='hub sync'
 #alias vim='nvim'
