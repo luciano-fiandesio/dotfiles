@@ -26,3 +26,5 @@ alias b="git branch | fzf | xargs git checkout"
 ## VM
 alias win="VBoxSDL --startvm Windows10"
 
+## Kube
+alias k="kubectl"
