@@ -7,5 +7,4 @@ joseluisq/gitnow@2.7.0
 PatrickF1/fzf.fish
 jorgebucaran/nvm.fish
 reitzig/sdkman-for-fish@v1.4.0
-jorgebucaran/fisher
-rstacruz/fish-asdf
+halostatue/fish-direnv
