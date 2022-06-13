@@ -30,7 +30,7 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
-status is-login; and pyenv init --path | source
+#status is-login; and pyenv init --path | source
 
 
 # Enable starship prompt

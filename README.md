@@ -30,11 +30,9 @@ fisher update
 
 Set the preferred colorscheme. E.g.
 
-
 ```
 base16-gruvbox-dark-hard
 ```
-
 
 ### Setup fish shell configuration§		
 
@@ -49,7 +47,6 @@ base16-gruvbox-dark-hard
 cd osx
 ./setup.sh
 ```
-
 
 ### Setup git
 
@@ -81,32 +78,44 @@ This is a template:
 ./tmux/setup.sh
 ```
 
-
 ### Setup nvim
 
-```
-./nvim/setup.sh
-```
+Install LunarVim <https://www.lunarvim.org>
+
 
 ## Development
 
+### asdf
+
+Clone `asdf`, instructions here: <https://asdf-vm.com/guide/getting-started.html#_2-download-asdf>
+
+Setup `direnv`
+
+```
+cd dev
+./setup
+```
+
 ### java
 
-Download and install JDK 8: <https://www.dropbox.com/s/c2qk8vfa8gd3khj/jdk-8u251-macosx-x64.dmg?dl=0>
+```
+cd dev/java
+./setup.sh
+```
 
+This will install `sdkman` <https://sdkman.io>.
+Install the required JVM and tooling.
 
 ### python
 
-https://opensource.com/article/19/5/python-3-default-mac
-
-### sdkman
-
 ```
-curl -s "https://get.sdkman.io?rcupdate=false" | bash
+cd dev/python
+./setup.sh
 ```
 
-### postgresql
+### node
 
-Postgresapp
-
-Download and install: <https://github.com/PostgresApp/PostgresApp/releases/download/v2.3.3e/Postgres-2.3.3e-10-11-12.dmg>
+```
+cd dev/node
+./setup.sh
+```
